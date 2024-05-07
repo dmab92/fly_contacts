@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <template id="sponsorship_flypool" >
+         <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h3>Sponsorship Confirmation</h3>
+                        <p align="justify">I, the undersigned Mr or Mrs  <b><span t-field="o.name"/> </b> responsible for the company<b> <span t-field="o.company_id.name"/>  </b>
+                            I understand that this free application, made available free of charge, allows users to benefit from real benefits. I therefore under-
+                            take to support this concept freely, paying the sum of: <b> <span t-field="o.sum_of"/> </b>  (Specify the nature of the donation), monthly or occasionally for
+                            a period of <b> <span t-field="o.period"/> </b>    months. I wish 10% of my donations
+                            to be donated to one of the following NGOs :
+                        </p>
+                        <t t-if="o.bool">
+                          <h3><img t-att-src="'/contacts/static/description/ocean.png'" height="80" width="80"/> <b>Océan Gardener</b>  https://www.oceangardener.org/  </h3>
+                        </t>
+                        <t t-if="o.bool1">
+                        <h3> <img t-att-src="'/contacts/static/description/apeel.png'" height="80" width="80"/> <b>Apeel</b>  https://www.apeel-laos.org/ </h3>
+                        </t>
+                        Number of employees in the structure : <b> <span t-field="o.nb_employees"/> </b>  <br/>
+                        Number of FlyPoints made available :<b>  <span t-field="o.nb_flypool"/> </b>   <br/>
+                        <h3 style="text-align: center;">  Do the <span t-field="o.date"/> <br/>  SIGNATURE
+                        <img t-att-src="o.signature" widget="signature" style="max-height: 4cm; max-width: 8cm;"/></h3>
+
+                    </div>
+                </t>
+                </t>
+        </t>
+    </template>
+                    <report id="action_report_sponsorship_flypool"
+                            string="Sponsorship Confirmation"
+                            model="charte.flypool"
+                            report_type = "qweb-pdf"
+                            file="contacts.sponsorship_flypool"
+                            name="contacts.sponsorship_flypool"
+                           />
+</data>
+
+</odoo>
+
+

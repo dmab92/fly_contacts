@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <template id="charte_flypool" >
+         <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                <div class="page">
+                    <img t-att-src="'/contacts/static/description/1.png'"/>
+                    <p style="page-break-before:always;"> </p>
+                    <img t-att-src="'/contacts/static/description/2.png'"/>
+                    <p style="page-break-before:always;"> </p>
+
+                    <img t-att-src="'/contacts/static/description/3.png'"/>
+
+
+                    <p style="page-break-before:always;"> </p>
+                    <img t-att-src="'/contacts/static/description/header.png'" align="center" height="175" width="2350"/>
+
+                    <p> <h2>I, the undersigned Mr or Mrs  <b><span t-field="o.name"/> </b> responsible for the company<b> <span t-field="o.company_id.name"/>  </b>
+                        I understand that this free application, made available free of charge, allows users to benefit from real benefits. I therefore under-
+                        take to support this concept freely, paying the sum of: <span t-field="o.sum_of"/>  (Specify the nature of the donation), monthly or occasionally for
+                        a period of  <span t-field="o.period"/>  months. I wish 10% of my donations
+                        to be donated to one of the following NGOs : </h2>
+                    </p>
+
+                    
+                    <t t-if="o.bool">
+                      <h2><img t-att-src="'/contacts/static/description/ocean.png'" height="80" width="80"/> <b>Océan Gardener</b>  https://www.oceangardener.org/  </h2>
+                    </t>
+                    <t t-if="o.bool1">
+
+                    <h2> <img t-att-src="'/contacts/static/description/apeel.png'" height="80" width="80"/> <b>Apeel</b>  https://www.apeel-laos.org/ </h2>
+                    </t>
+                    <p>
+                    <h2> <b style="text-color:blue"> Our commitments : </b> As a partner, each month, your collaborators will benefit from a certain number of FlyPoints which will be
+                            automatically redistributed to them. These points will allow them to save money on their journeys. For example, 10 FlyPoints will
+                            entitle them to a 1-kilometer journey. </h2>
+                    </p>
+                    <h2> Number of employees in the structure : <b> <span t-field="o.nb_employees"/> </b>  <br/>
+                    Number of FlyPoints made available :<b>  <span t-field="o.nb_flypool"/> </b>   <br/>
+                    </h2>
+                    <h2 style="text-align: center;"> Do the <span t-field="o.date"/> <br/>  SIGNATURE
+                    <img t-att-src="o.signature" widget="signature" style="max-height: 4cm; max-width: 8cm;"/></h2>
+
+                    <p style="page-break-before:always;"> </p>
+
+                    <img t-att-src="'/contacts/static/description/5.png'" align="center" width="2350"/>
+
+                    <!--<img t-att-src="'/contacts/static/description/footer.png'" align="center" height="175" width="2350"/>-->
+
+                </div>
+                </t>
+                </t>
+        </t>
+
+    </template>
+
+
+
+        <record id="paperformat_charte" model="report.paperformat">
+                <field name="name">CustomPaper</field>
+                <field name="default" eval="True" />
+                <field name="format">custom</field>
+                <field name="page_height">210</field>
+                <field name="page_width">297</field>
+                <field name="orientation">Portrait</field>
+                <field name="margin_top">2.0</field>
+                <field name="margin_bottom">2.0</field>
+                <field name="margin_left">2.0</field>
+                <field name="margin_right">2.0</field>
+                <field name="header_line" eval="False" />
+                <field name="header_spacing">35</field>
+                <field name="dpi">125</field>
+        </record>
+
+        <record id="action_report_charte_flypool" model="ir.actions.report">
+               <field name="name">CharteFlyPool</field>
+               <field name="model">charte.flypool</field>
+               <field name="report_type">qweb-pdf</field>
+               <field name="report_name">contacts.charte_flypool</field>
+               <field name="report_file">contacts.charte_flypool</field>
+               <field name="paperformat_id" ref="contacts.paperformat_charte" />
+               <field name="binding_type">report</field>
+        </record>
+
+        <record id="action_report_flystore_flypool" model="ir.actions.report">
+               <field name="name">FLystore</field>
+               <field name="model">charte.flypool</field>
+               <field name="report_type">qweb-pdf</field>
+               <field name="report_name">contacts.flystore_flypool</field>
+               <field name="report_file">contacts.flystore_flypool</field>
+               <field name="paperformat_id" ref="contacts.paperformat_charte" />
+               <field name="binding_type">report</field>
+        </record>
+
+
+<!--                    <report id="action_report_charte_flypool"-->
+<!--                            string="Charte FlyPool"-->
+<!--                            model="charte.flypool"-->
+<!--                            report_type = "qweb-pdf"-->
+<!--                            file="contacts.charte_flypool"-->
+<!--                            name="contacts.charte_flypool"-->
+<!--                           />-->
+
+
+</data>
+
+</odoo>
+
+

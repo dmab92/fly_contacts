@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <template id="flystore_flypool" >
+         <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                <t t-call="web.internal_layout">
+                <div class="page">
+                    <img t-att-src="'/contacts/static/description/flystore2.png'"/>
+                </div>
+                </t>
+                </t>
+        </t>
+
+    </template>
+
+         <record id="paperformat_flystore" model="report.paperformat">
+                <field name="name">FlystorePaper</field>
+                <field name="default" eval="True" />
+                <field name="format">custom</field>
+                <field name="page_height">297</field>
+                <field name="page_width">210</field>
+                <field name="orientation">Portrait</field>
+                <field name="margin_top">0</field>
+                <field name="margin_bottom">0</field>
+                <field name="margin_left">0</field>
+                <field name="margin_right">0</field>
+                <field name="header_line" eval="False" />
+                <field name="header_spacing">35</field>
+                <field name="dpi">125</field>
+        </record>
+
+        <record id="action_report_flystore_flypool" model="ir.actions.report">
+               <field name="name">FLystore</field>
+               <field name="model">charte.flypool</field>
+               <field name="report_type">qweb-pdf</field>
+               <field name="report_name">contacts.flystore_flypool</field>
+               <field name="report_file">contacts.flystore_flypool</field>
+                <field name="paperformat_id" ref="contacts.paperformat_flystore" />
+               <field name="binding_type">report</field>
+        </record>
+
+</data>
+
+</odoo>
+
+
