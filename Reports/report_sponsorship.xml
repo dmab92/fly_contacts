@@ -14,14 +14,15 @@
                             to be donated to one of the following NGOs :
                         </p>
                         <t t-if="o.bool">
-                          <h3><img t-att-src="'/contacts/static/description/ocean.png'" height="80" width="80"/> <b>Océan Gardener</b>  https://www.oceangardener.org/  </h3>
+                          <h3><img t-att-src="'/contacts/static/description/ocean.png'" height="80" width="80"/> <b>Ocean Gardener</b>  https://www.oceangardener.org/  </h3>
                         </t>
                         <t t-if="o.bool1">
                         <h3> <img t-att-src="'/contacts/static/description/apeel.png'" height="80" width="80"/> <b>Apeel</b>  https://www.apeel-laos.org/ </h3>
                         </t>
                         Number of employees in the structure : <b> <span t-field="o.nb_employees"/> </b>  <br/>
                         Number of FlyPoints made available :<b>  <span t-field="o.nb_flypool"/> </b>   <br/>
-                        <h3 style="text-align: center;">  Do the <span t-field="o.date"/> <br/>  SIGNATURE
+                        <h3 style="text-align: center;">  Do the <span t-field="o.date"/> <br/>
+                            SIGNATURE
                         <img t-att-src="o.signature" widget="signature" style="max-height: 4cm; max-width: 8cm;"/></h3>
 
                     </div>

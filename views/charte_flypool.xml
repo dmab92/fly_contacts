@@ -22,7 +22,6 @@
                                     Cr&#233;ez / &#233;ditez vos donn&#233;es sur les chartes
                         </p>
                     <header>
-
                         <button name="print_recu"
                                       string="Print the Charter"
                                       type="object"
@@ -71,13 +70,8 @@
                                      <field name="date" />
                                      </group>
                         </div>
-<!--                        <field name="signature" widget="signature"  string="Signature" />-->
                     </div>
-<!--                        <notebook>-->
-<!--                            <page string="PARTNERS">-->
-<!--                                    <p>  </p>-->
-<!--                            </page>-->
-<!--                        </notebook>-->
+
                     </sheet>
                 </form>
             </field>
@@ -119,20 +113,11 @@
             </field>
         </record>
 
-<!--    <menuitem id="menu_team_leader"-->
-<!--        name="My contacts as team leader"-->
-<!--        action="action_partner_form_team_leader"-->
-<!--        parent="menu_contacts"-->
-<!--        sequence="3"/>-->
 
     <menuitem id="menu_charte"
         name="Flypool Charter"
         action="view_charte_flypool_action"
         parent="menu_contacts"
         sequence="3"/>
-
-
-
-
 
 </odoo>

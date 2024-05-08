@@ -25,6 +25,8 @@ class CharteFlypool(models.Model):
                               ('cancel', 'cancel'),
                               ], default='draft', string="State")
 
+    signature2 = fields.Binary(string="Digital Signature")
+
 
 
     def print_recu(self):
@@ -55,7 +57,6 @@ class CharteFlypool(models.Model):
 
     def print_sponsorship(self):
         return self.env.ref('contacts.action_report_sponsorship_flypool').report_action(self)
-
 
     def set_valitaded(self):
         return self.write({'state': 'valited'})
